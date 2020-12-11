@@ -11,8 +11,10 @@ function love.load()
   Object = require("libs/classic")
   Camera = require("libs/hump_camera")
   require("src/game")
+  require("src/camera")
   require("src/player")
-  require("libs/hump_camera")
+  require("src/level")
+  require("src/wall")
   
   love.window.setTitle("Labyrinth of Sound")
 
