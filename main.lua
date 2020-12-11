@@ -9,8 +9,10 @@ function love.load()
   love.math.setRandomSeed(love.timer.getTime())
 
   Object = require("libs/classic")
+  Camera = require("libs/hump_camera")
   require("src/game")
   require("src/player")
+  require("libs/hump_camera")
   
   love.window.setTitle("Labyrinth of Sound")
 

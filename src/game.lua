@@ -2,14 +2,19 @@ game = {}
 
 function game.init()
   player = Player()
+  
+  camera = Camera(player.x + TILE_SIZE/2, player.y + TILE_SIZE/2)
 end
 
 function game.update(dt)
   player:update(dt)
+  updateCamera()
 end
 
 function game.draw()
+  camera:attach()
   player:draw()
+  camera:detach()
 end
 
 function game.keypressed(key)
@@ -24,4 +29,9 @@ function game.keypressed(key)
   elseif key == "escape" then
     love.event.quit(0)
   end
+end
+
+function updateCamera()
+  local dx,dy = (player.x + TILE_SIZE/2) - camera.x, (player.y + TILE_SIZE/2) - camera.y
+  camera:move(dx/2, dy/2)
 end
