@@ -5,7 +5,9 @@ function game.init()
   
   camera = TargetCamera(player)
   
-  lobby = Level("levels/lobby.lvl")
+  level = Level("levels/lobby.lvl")
+  
+  InitColors()
 end
 
 function game.update(dt)
@@ -16,7 +18,7 @@ end
 function game.draw()
   camera:attach()
   player:draw()
-  lobby:draw()
+  level:draw()
   camera:detach()
 end
 

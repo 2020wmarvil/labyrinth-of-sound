@@ -11,6 +11,7 @@ function Player:update(dt)
 end
 
 function Player:draw()
+  love.graphics.setColor(player_color.r, player_color.g, player_color.b, player_color.a)
   love.graphics.rectangle("fill", self.x*TILE_SIZE, self.y*TILE_SIZE, self.size, self.size)
 end
 
@@ -26,4 +27,6 @@ function Player:move(dir)
   else
     print("ERROR: Invalid direction to Player:move(dir)")
   end
+  
+  RandomizeColors()
 end

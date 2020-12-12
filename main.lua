@@ -15,6 +15,7 @@ function love.load()
   require("src/player")
   require("src/level")
   require("src/wall")
+  require("src/colorizer")
   
   love.window.setTitle("Labyrinth of Sound")
 
