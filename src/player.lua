@@ -9,29 +9,30 @@ function Player:update(dt)
 end
 
 function Player:draw()
-  DrawTile(self.x, self.y, player_color)
+  love.graphics.setColor(player_color.r, player_color.g, player_color.b, 1)      
+  love.graphics.rectangle("fill", self.x*TILE_SIZE, self.y*TILE_SIZE, TILE_SIZE, TILE_SIZE)
 end
 
 function Player:move(dir)
   local success = false
   
   if dir == "up" then
-    if (level.grid[self.y-1][self.x] == TILE_ID.PATH) then
+    if (level.grid[self.y-1][self.x].id == TILE_ID.PATH) then
       self.y = self.y - 1
       success = true
     end
   elseif dir == "down" then
-    if (level.grid[self.y+1][self.x] == TILE_ID.PATH) then
+    if (level.grid[self.y+1][self.x].id == TILE_ID.PATH) then
       self.y = self.y + 1
       success = true
     end
   elseif dir == "left" then
-    if (level.grid[self.y][self.x-1] == TILE_ID.PATH) then
+    if (level.grid[self.y][self.x-1].id == TILE_ID.PATH) then
       self.x = self.x - 1
       success = true
     end
   elseif dir == "right" then
-    if (level.grid[self.y][self.x+1] == TILE_ID.PATH) then
+    if (level.grid[self.y][self.x+1].id == TILE_ID.PATH) then
       self.x = self.x + 1
       success = true
     end
@@ -40,8 +41,16 @@ function Player:move(dir)
   end
   
   if success then
-    --play note
+    notes.c5:stop()
+    notes.e5:stop()
+    notes.g5:stop()
+    
+    notes.c5:play()
+    notes.e5:play()
+    notes.g5:play()
+  else
+    --play a bonk?
   end
-  
+    
   RandomizeColors()
 end
