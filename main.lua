@@ -11,20 +11,19 @@ function love.load()
   Object = require("libs/classic")
   Camera = require("libs/hump_camera")
   require("src/game")
-  require("src/camera")
+  require("src/target_camera")
   require("src/player")
   require("src/level")
-  require("src/wall")
   require("src/colorizer")
   
   love.window.setTitle("Labyrinth of Sound")
 
   love.graphics.setBackgroundColor(0, 0, 0)
   
-  startGame()
+  StartGame()
 end
   
-function startGame()
+function StartGame()
   game.init()
   
   love.update = game.update

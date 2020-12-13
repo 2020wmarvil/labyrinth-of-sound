@@ -2,7 +2,7 @@ TargetCamera = Object:extend()
 
 function TargetCamera:new(target)  
   self.target = target
-  self.camera = Camera(self.target.x + self.target.size/2, self.target.y + self.target.size/2)
+  self.camera = Camera(self.target.x + TILE_SIZE/2, self.target.y + TILE_SIZE/2)
   self.smoothness = 0.5
   
   self:center_on_target(0)

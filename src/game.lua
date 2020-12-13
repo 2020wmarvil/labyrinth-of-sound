@@ -5,7 +5,8 @@ function game.init()
   
   camera = TargetCamera(player)
   
-  level = Level("levels/lobby.lvl")
+  --level = Level("levels/lobby.lvl")
+  level = Level()
   
   InitColors()
 end
@@ -16,9 +17,11 @@ function game.update(dt)
 end
 
 function game.draw()
+  --background:draw() -- should this go inside or outside of the camera? probably inside!
+  
   camera:attach()
-  player:draw()
   level:draw()
+  player:draw()
   camera:detach()
 end
 

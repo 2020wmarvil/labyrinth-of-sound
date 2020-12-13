@@ -1,18 +1,15 @@
 Player = Object:extend()
 
 function Player:new()  
-  self.x = 5
-  self.y = 5
-  
-  self.size = TILE_SIZE
+  self.x = 6
+  self.y = 6
 end
 
 function Player:update(dt)
 end
 
 function Player:draw()
-  love.graphics.setColor(player_color.r, player_color.g, player_color.b, player_color.a)
-  love.graphics.rectangle("fill", self.x*TILE_SIZE, self.y*TILE_SIZE, self.size, self.size)
+  DrawTile(self.x, self.y, player_color)
 end
 
 function Player:move(dir)
