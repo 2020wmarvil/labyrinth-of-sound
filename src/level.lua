@@ -4,6 +4,8 @@ function Level:new()
   self.width = 100
   self.height = 100
   
+  self.start = { x = 3, y = 3 }
+  
   self.grid = {}
   for i = 1, self.height do
     self.grid[i] = {}

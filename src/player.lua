@@ -1,8 +1,8 @@
 Player = Object:extend()
 
 function Player:new()  
-  self.x = 6
-  self.y = 6
+  self.x = 3
+  self.y = 3
 end
 
 function Player:update(dt)
@@ -41,13 +41,7 @@ function Player:move(dir)
   end
   
   if success then
-    notes.c5:stop()
-    notes.e5:stop()
-    notes.g5:stop()
-    
-    notes.c5:play()
-    notes.e5:play()
-    notes.g5:play()
+    keys.c_major.ii:play()
   else
     --play a bonk?
   end
