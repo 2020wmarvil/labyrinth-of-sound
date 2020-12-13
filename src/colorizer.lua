@@ -1,10 +1,11 @@
 -- for a uniform color space use hsluv https://github.com/hsluv/hsluv/blob/512b2b0da441a9c065796ef16d585d9836597b68/haxe/src/hsluv/Hsluv.hx
 
-function InitColors()  
+function InitColors()
   RandomizeColors()
 end
 
 function RandomizeColors()
+  -- instead of doing type of color (pastel vs neon), maybe do type of harmony (monochromatic vs triadic, etc.)
   local key_color = RandomPastel()
   local tint_color = TintColor(key_color)
   local shade_color = ShadeColor(key_color)

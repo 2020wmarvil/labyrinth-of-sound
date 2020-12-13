@@ -13,16 +13,34 @@ function Player:draw()
 end
 
 function Player:move(dir)
+  local success = false
+  
   if dir == "up" then
-    self.y = self.y - 1
+    if (level.grid[self.y-1][self.x] == TILE_ID.PATH) then
+      self.y = self.y - 1
+      success = true
+    end
   elseif dir == "down" then
-    self.y = self.y + 1
+    if (level.grid[self.y+1][self.x] == TILE_ID.PATH) then
+      self.y = self.y + 1
+      success = true
+    end
   elseif dir == "left" then
-    self.x = self.x - 1
+    if (level.grid[self.y][self.x-1] == TILE_ID.PATH) then
+      self.x = self.x - 1
+      success = true
+    end
   elseif dir == "right" then
-    self.x = self.x + 1
+    if (level.grid[self.y][self.x+1] == TILE_ID.PATH) then
+      self.x = self.x + 1
+      success = true
+    end
   else
     print("ERROR: Invalid direction to Player:move(dir)")
+  end
+  
+  if success then
+    --play note
   end
   
   RandomizeColors()

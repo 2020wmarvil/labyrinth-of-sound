@@ -14,18 +14,19 @@ function Level:new()
   self.width = 11
   self.height = 11
   
-  self.grid = {}
-  for i = 1, self.height do
-    self.grid[i] = {}
-
-    for j = 1, self.width do
-      if (i+j) % 2 == 0 then
-        self.grid[i][j] = TILE_ID.PATH
-      else
-        self.grid[i][j] = TILE_ID.WALL
-      end
-    end
-  end
+  self.grid = {
+    { 0, 0, 0, 0, 2, 1, 2, 0, 0, 0, 0 },
+    { 0, 0, 0, 0, 2, 1, 2, 0, 0, 0, 0 },
+    { 0, 0, 0, 0, 2, 1, 2, 0, 0, 0, 0 },
+    { 0, 0, 0, 0, 2, 1, 2, 0, 0, 0, 0 },
+    { 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2 },
+    { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+    { 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2 },
+    { 0, 0, 0, 0, 2, 1, 2, 0, 0, 0, 0 },
+    { 0, 0, 0, 0, 2, 1, 2, 0, 0, 0, 0 },
+    { 0, 0, 0, 0, 2, 1, 2, 0, 0, 0, 0 },
+    { 0, 0, 0, 0, 2, 1, 2, 0, 0, 0, 0 }
+  }
 end
 
 function Level:draw()
