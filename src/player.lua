@@ -1,8 +1,8 @@
 Player = Object:extend()
 
 function Player:new()  
-  self.x = 3
-  self.y = 3
+  self.x = level.start.x
+  self.y = level.start.y
 end
 
 function Player:update(dt)
@@ -16,35 +16,25 @@ end
 function Player:move(dir)
   local success = false
   
+  local intended_x, intended_y = self.x, self.y
+  
   if dir == "up" then
-    if (level.grid[self.y-1][self.x].id == TILE_ID.PATH) then
-      self.y = self.y - 1
-      success = true
-    end
+    intended_y = self.y - 1
   elseif dir == "down" then
-    if (level.grid[self.y+1][self.x].id == TILE_ID.PATH) then
-      self.y = self.y + 1
-      success = true
-    end
+    intended_y = self.y + 1
   elseif dir == "left" then
-    if (level.grid[self.y][self.x-1].id == TILE_ID.PATH) then
-      self.x = self.x - 1
-      success = true
-    end
+    intended_x = self.x - 1
   elseif dir == "right" then
-    if (level.grid[self.y][self.x+1].id == TILE_ID.PATH) then
-      self.x = self.x + 1
-      success = true
-    end
+    intended_x = self.x + 1
   else
     print("ERROR: Invalid direction to Player:move(dir)")
   end
   
-  if success then
-    keys.c_major.ii:play()
-  else
-    --play a bonk?
+  if level.grid[intended_x][intended_y].id == TILE_ID.PATH then
+    self.x, self.y = intended_x, intended_y
   end
-    
+  
+  level.grid[intended_x][intended_y].chord:play()
+  
   RandomizeColors()
 end

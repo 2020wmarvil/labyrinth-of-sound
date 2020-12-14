@@ -36,7 +36,12 @@ function LoadKeys()
       vi = Chord("A5", "C6", "E6"),
       vii = Chord("B6", "D6", "F6"),
     }
+    -- do major and minor for each note in an octave
   }
+  
+  ugly_chord = Chord("E5", "C4", "A6")
+  
+  chord_adjacencies = { {3,4,5,6}, {3,5,7}, {2,4,6,}, {2,5}, {1,3,6,}, {2,4,7}, {2,4,5} }
 end
 
 function LoadSamples()

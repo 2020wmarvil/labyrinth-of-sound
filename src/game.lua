@@ -1,12 +1,11 @@
 game = {}
 
 function game.init()
-  player = Player()
-  
-  camera = TargetCamera(player)
   
   --level = Level("levels/lobby.lvl")
   level = Level()
+  player = Player()  
+  camera = TargetCamera(player)
   
   InitColors()
   
@@ -23,8 +22,16 @@ function game.draw()
   camera:attach()
   level:draw()
   player:draw()  
-  camera:detach()  
+  camera:detach()
   
+  if player.x == 11 and player.y == 13 then
+    love.graphics.setColor(wall_color.r, wall_color.g, wall_color.b, 1)   
+    love.graphics.setNewFont(20)
+    local subfont = love.graphics.newFont(20)
+    local subtext = "you've reached the end of the game currently, \nprocedural maze generation coming at a later date"
+    love.graphics.print(subtext, math.floor((SCREEN_WIDTH-subfont:getWidth(subtext))/2), SCREEN_HEIGHT - (2*subfont:getHeight() + 10))
+  end
+    
   if not moved then
     love.graphics.setColor(wall_color.r, wall_color.g, wall_color.b, 1)   
     love.graphics.setNewFont(20)

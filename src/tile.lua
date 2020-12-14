@@ -2,10 +2,11 @@ Tile = Object:extend()
 
 TILE_ID = { VOID=0, PATH=1, WALL=2 }
 
-function Tile:new(id, x, y)
+function Tile:new(id, x, y, chord)
   self.id = id
   self.x = x
   self.y = y
+  self.chord = chord
 end
 
 function Tile:draw()
