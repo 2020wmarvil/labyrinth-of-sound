@@ -29,8 +29,19 @@ function Level:new()
   end  
 end
 
-function GenerateChordProgression()  
-  local key = keys.c_major
+function GenerateChordProgression()
+  local index = love.math.random(1, 24)
+  
+  local key = nil
+  local count = 1
+  for i,k in pairs(keys) do
+    if count == index then
+      key = k
+      print(i)
+    end
+    
+    count = count + 1
+  end
   
   local chords = { key.I }
   
@@ -60,7 +71,6 @@ function GenerateChordProgression()
   end
   
   return chords
-
 end
 
 function Level:draw()
